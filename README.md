@@ -1,4 +1,4 @@
-# Display Memory, Strings, Software Interrupts, Hardware Interrupts - 8086 Assembly
+# Display Memory (Video Card Memory), Strings, Software Interrupts, Hardware Interrupts - 8086 Assembly
 
 I solved all these questions and shared the solutions here so that you can have a strong grip on these concepts with ready to run interesting solved problems.
 
