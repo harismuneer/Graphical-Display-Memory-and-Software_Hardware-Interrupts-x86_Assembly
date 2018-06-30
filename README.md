@@ -21,28 +21,41 @@ mount c: c:\assembly_code
 ```
 c:
 ```
-4- Now to run any question (say named 'chp4_03.asm'), run DOSBOX 0.74 and type
+4- Now to run any question (say named 'q1.asm'), run DOSBOX 0.74 and type
 ```
-nasm chp4_03.asm -o chp4_03.com  
+nasm q1.asm -o q1.com  
 ```
 ```
-afd chp4_03.com
+afd q1.com
 ```
 
 ## Problems Solved
 
-### Question 1: (Exercise of Chp 4 - Bit Manipulation)
-* Q-1. Write a program to swap every pair of bits in the AX register.
-* Q-3. Write a program to swap the nibbles in each byte of the AX register.
-* Q-4. Calculate the number of one bits in BX and complement an equal number of least significant bits in AX.
-* Q-5. Write a program to multiply two 32bit numbers and store the answer in a 64bit location.
-* Q-6. Declare a 32byte buffer containing random data. Consider for this problem that the bits in these 32 bytes are numbered from 0 to 255.     Declare another byte that contains the starting bit number. Write a program to copy the byte starting at this starting bit number in the AX register. Be careful that the starting bit number may not be a multiple of 8 and therefore the bits of the desired byte will be split into two bytes.
-* Q-7. AX contains a number between 0-15. Write code to complement the corresponding bit in BX. For example if AX contains 6; complement the 6th bit of BX.
-* Q-8. AX contains a non-zero number. Count the number of ones in it and store the result back in AX. Repeat the process on the result (AX) until AX contains one. Calculate in BX the number of iterations it took to make AX one.
+### Display Memory
 
-### Question 2: (Exercise of Chp 5 - Subroutines)
-* Q-3. Write a recursive function to calculate the Fibonacci of a number. The number is passed as a parameter via the stack and the calculated Fibonacci number is returned in the AX register. A local variable should be used to store the return value from the first recursive call. Fibonacci function is defined as follows: Fibonacci(0) = 0 Fibonacci(1) = 1 Fibonacci(n) = Fibonacci(n-1) + Fibonacci(n-2)
-* Q-4. Write the above Fibonacci function iteratively.
-* Q-5. Write a function switch_stack meant to change the current stack and will be called as below. The function should destroy no registers. push word [new_stack_segment] push word [new_stack_offset] call switch_stack
-* Q-8. Make an array of 0x80 bytes and treat it as one of 0x400 bits. Write a function myalloc that takes one argument, the number of bits. It p, and returns in AX the index of the first bit. Write another function myfree that takes two arguments, index of a bit in the array, and the number of bits. It makes that many consecutive bits zero, whatever their previous values are, starting from the index in the first argument.
+* Q1. Write a program to make an asterisk travel the border of the screen, from upper left to upper right to lower right to lower left and back to upper left indefinitely.
+* Q2. Write a subroutine “splitScreen” to reverse the screen i.e. left becomes right and right becomes left. Similarly top becomes bottom and bottom becomes top. You cannot use any temporary array. Only a word variable can be declared if needed.
+
+
+### Strings + Display Memory
+
+* Q3. Write a subroutine to copy a given area on the screen at the center of the screen without using a temporary array. The routine will be passed top, left, bottom, and right in that order through the stack. The parameters passed will always be within range the height will be odd and the width will be even so that it can be exactly centered. 
+
+* Q4. Write a subroutine findSubstr that takes a null terminated string and a null terminated substring as its parameters and prints “Substring Found.” on video screen if that substring is found in that string and prints “Substring Not Found.” otherwise.
+
+Sample : 
+str: db ‘Marry has a little lamb.’,0
+substr1: db ‘lamb’,0             ; findSubstr  prints “Substring Found.” for this substring.
+Substr2: db ‘lame’,0            ; findSubstr  prints “Substring Not Found.” for this substring.
+
+* Q5.  Write a subroutine “strcpy” that takes the address of two parameters via stack, the one pushed first is source and the second is the destination. The function should copy the source on the destination including the null character assuming that sufficient space is reserved starting at destination.
+
+### Software Interrupts
+
+* Q6. Write an assembly program that takes a 16 bit number as input from user and calculates whether the number is a happy number or unhappy. If the number is a happy number, display ‘Happy’ on the screen else display ‘UnHappy’. A happy number is defined by the following process: 
+
+Starting with the given number, replace that number by the sum of the squares of its digits. Repeat the process on the replaced number until the number either equals 1 within 256 iterations of the process. The number for which this process ends in 1 within 256 iterations is called a happy number; otherwise it is called an unhappy number. Use ah =01 service of int 21h to take input from user and ah=09 service of int 21h to print string on the screen.
+
+### Hardware Interrupts
+* Q7. Write a TSR to calculate the current typing speed of the user. Current typing speed is the number of characters typed by the user in the last five seconds. The speed should be represented by printing asterisks at the right border (80th column) of the screen starting from the upper right to the lower right corner (growing downwards). Draw n asterisks if the user typed n characters in the last five seconds. The count should be updated every second.
 
