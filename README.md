@@ -2,9 +2,9 @@
 
 I solved all these questions and shared the solutions here so that you can have a strong grip on these concepts with ready to run interesting solved problems.
 
-## Reference Book
+## Book to Understand Concepts
 
-*The questions are taken from the book [Assembly Language Programming by Belal Hashmi and Junaid Haroon](https://onlinebookpoint.blogspot.com/2016/10/assembly-language-programming-delivered.html)*
+[Assembly Language Programming by Belal Hashmi and Junaid Haroon](https://onlinebookpoint.blogspot.com/2016/10/assembly-language-programming-delivered.html)
 
 Its an excellent book for understanding the language and concepts of 8086 Assembly. It starts from the very basics and then takes you to advanced concepts in an efficient manner. Highly Recommended!
 
