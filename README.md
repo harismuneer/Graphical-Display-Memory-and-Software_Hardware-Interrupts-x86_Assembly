@@ -25,9 +25,18 @@ c:
 ```
 nasm q1.asm -o q1.com  
 ```
+To run the code, type
+
+```
+q1.com
+```
+
+To examine step by step working of the code, type
+
 ```
 afd q1.com
 ```
+
 
 ## Problems Solved
 
