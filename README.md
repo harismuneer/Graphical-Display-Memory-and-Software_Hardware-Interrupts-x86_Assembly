@@ -68,3 +68,14 @@ Starting with the given number, replace that number by the sum of the squares of
 ### Hardware Interrupts
 * Q7. Write a TSR to calculate the current typing speed of the user. Current typing speed is the number of characters typed by the user in the last five seconds. The speed should be represented by printing asterisks at the right border (80th column) of the screen starting from the upper right to the lower right corner (growing downwards). Draw n asterisks if the user typed n characters in the last five seconds. The count should be updated every second.
 
+
+## Contact
+You can get in touch with me on my LinkedIn Profile: [Haris Muneer](https://www.linkedin.com/in/harismuneer/)
+
+## Issues
+If you face any issue, you can create a new issue in the Issues Tab and I will be glad to help you out.
+
+## License
+[MIT](../master/LICENSE)
+Copyright (c) 2018-present, harismuneer
+
